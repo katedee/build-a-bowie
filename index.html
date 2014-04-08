@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Build-A-Bowie</title>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+	<link rel="stylesheet" href="style.css">
+	<link href='http://fonts.googleapis.com/css?family=Autour+One' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<img class="bowie" src="jareth.png">
+<div class="wrapper clearfix">
+<div class="header"><h1>Build-a-Bowie</h1></div>
+	<div class="clothes">
+		<img class="hair" src="img/yahair.png" alt="">
+		<img class="hair" src="img/ziggyhair.png" alt="">
+		<img class="hair" src="img/labhair.png" alt="">
+		<img class="tops" src="img/yatop.png" alt="">
+		<img class="tops" src="img/ziggytop.png" alt="">
+		<img class="tops" src="img/labtop.png" alt="">
+		<img class="pants" src="img/yapants.png" alt="">
+		<img class="shoes" src="img/ziggypants.png" alt="">
+		<img class="shoes" src="img/labpants.png" alt="">
+		<img class="shoes" src="img/yashoes.png" alt="">
+		<img class="pants" src="img/ziggyboots.png" alt="">
+		<img class="pants" src="img/labboots.png" alt="">
+	</div>
+	<div class="baseBody"><img src="img/bowiebase.png"></div>
+</div>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	<script>
+    // create the keys and konami variables
+    $(document).ready(function(){
+    	$('.clothes img').draggable();//draggable images
+
+    	//konami code
+    	var labyrinth = [];
+    	var jareth = "71,79,66,76,73,78,75,73,78,71";
+
+    	window.addEventListener("keydown", function(e){
+        	labyrinth.push(e.keyCode);
+        	if (labyrinth.toString().indexOf(jareth) >= 0) {
+            // do something 
+            	$('img.bowie').addClass('surprise', function(){
+            	$('img.bowie').removeClass('surprise', 6000);
+			});          
+           		labyrinth = [];
+        	};//keys.toString
+    	});//window eventlistener
+	});//documentready
+    
+
+    // if (labyrinth.toString().indexOf(jareth) >= 0)
+    // 	if (labyrinth.toString() === jareth)
+	</script>
+</body>
+</html>
